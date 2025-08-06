@@ -9,12 +9,12 @@ import java.util.List;
 public interface OgrenciRepository extends JpaRepository<Ogrenci, Long> {
 
     //Öğrenci tablosundaki tüm kayıtları listeleyin.
-    String QUESTION_1 = "";
+    String QUESTION_1 = "select * from ogrenci";
     @Query(value = QUESTION_1, nativeQuery = true)
     List<Ogrenci> findAll();
 
     //Öğrenci tablosundaki kız öğrencileri listeleyin.
-    String QUESTION_2 = "";
+    String QUESTION_2 = "select * from ogrenci where cinsiyet='K'";
     @Query(value = QUESTION_2, nativeQuery = true)
     List<Ogrenci> findGirls();
 
