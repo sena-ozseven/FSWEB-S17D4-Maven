@@ -24,37 +24,37 @@ public interface OgrenciRepository extends JpaRepository<Ogrenci, Long> {
     List<String> findAllClasses();
 
     //Öğrenci tablosunda, 10A sınıfında olan kız öğrencileri listeleyiniz.
-    String QUESTION_4 = "";
+    String QUESTION_4 = "select * from ogrenci where cinsiyet='K' and sinif='10A'";
     @Query(value = QUESTION_4, nativeQuery = true)
     List<Ogrenci> find10AGirls();
 
     //Öğrenci numarası 5 ile 10 arasında olan Kız öğrencileri listeleyiniz.
-    String QUESTION_5 = "";
+    String QUESTION_5 = "select * from ogrenci where cinsiyet='K' and ogrno < 10 and ogrno > 5 ";
     @Query(value = QUESTION_5, nativeQuery = true)
     List<Ogrenci> findGirlsWithOgrno();
 
     // Öğrencileri adına göre sıralayınız (alfabetik)
-    String QUESTION_6 = "";
+    String QUESTION_6 = "select * from ogrenci order by ad";
     @Query(value = QUESTION_6, nativeQuery = true)
     List<Ogrenci> findStudentsAlphabetically();
 
     // 10A sınıfındaki öğrencileri okul numarasına göre azalan olarak sıralayınız.
-    String QUESTION_7 = "";
+    String QUESTION_7 = "select * from ogrenci where sinif='10A' order by ogrno desc";
     @Query(value = QUESTION_7, nativeQuery = true)
     List<Ogrenci> find10AStudentsByOgrNo();
 
     //Öğrenciler tablosundaki en genç öğrenciyi listeleyiniz.
-    String QUESTION_8 = "";
+    String QUESTION_8 = "select * from ogrenci order by dtarih desc limit 1";
     @Query(value = QUESTION_8, nativeQuery = true)
     Ogrenci findYoungestStudent();
 
     //Öğrenciler tablosundaki en yaşlı öğrenciyi listeleyiniz.
-    String QUESTION_9 = "";
+    String QUESTION_9 = "select * from ogrenci order by dtarih limit 1";
     @Query(value = QUESTION_9, nativeQuery = true)
     Ogrenci findElderStudent();
 
     //İkinci harfi E olan ogrencileri listeleyiniz.
-    String QUESTION_10 = "";
+    String QUESTION_10 = "select * from ogrenci where ad ilike '_E%' ";
     @Query(value = QUESTION_10, nativeQuery = true)
     List<Ogrenci> findStudentsSecondLetterOfN();
 
