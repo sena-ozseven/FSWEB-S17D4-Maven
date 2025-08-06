@@ -19,7 +19,7 @@ public interface OgrenciRepository extends JpaRepository<Ogrenci, Long> {
     List<Ogrenci> findGirls();
 
     //Öğrenci tablosunda kaydı bulunan sınıfların adını her sınıf bir kez görüntülenecek şekilde listeleyiniz
-    String QUESTION_3 = "";
+    String QUESTION_3 = "select distinct sinif from ogrenci";
     @Query(value = QUESTION_3, nativeQuery = true)
     List<String> findAllClasses();
 
